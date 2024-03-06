@@ -7,21 +7,27 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import com.example.weatherapiexample.MyApplication
 import com.example.weatherapiexample.view.screen.common.NavigationScreen
-import com.example.weatherapiexample.viewmodel.weatherViewModel
+import com.example.weatherapiexample.viewmodel.viewModelFactory
+import com.example.weatherapiexample.viewmodel.WeatherViewModel
 
 @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
 @Composable
 fun SearchScreen(
     navController: NavHostController,
-    searchViewModel: weatherViewModel = hiltViewModel()
+    searchViewModel: WeatherViewModel
 ) {
+/*    val searchViewModel = viewModel<WeatherViewModel>(
+        factory = viewModelFactory {
+            WeatherViewModel(MyApplication.networkModule.repo)
+        }
+    )*/
     val searchLocation by searchViewModel.searchLocation.collectAsStateWithLifecycle()
 
     Scaffold(
