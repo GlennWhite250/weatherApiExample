@@ -12,6 +12,6 @@ class MyApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
-        networkModule = NetworkModuleImpl(this)
+        networkModule = NetworkModuleImpl()
     }
 }

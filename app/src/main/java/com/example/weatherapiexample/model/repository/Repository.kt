@@ -6,7 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class Repository @Inject constructor(
+class Repository (
     private val weatherApi: WeatherApi
 ) {
     suspend fun getSearchedWeather(location: String): CurrentWeatherResponse {

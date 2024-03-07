@@ -19,9 +19,7 @@ interface NetworkModule {
     val repo: Repository
 }
 
-class NetworkModuleImpl(
-    private val appContext: Context
-): NetworkModule {
+class NetworkModuleImpl(): NetworkModule {
     override val weatherApi: WeatherApi by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)

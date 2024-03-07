@@ -23,11 +23,7 @@ fun HomeScreen(
     navHostController: NavHostController,
     homeViewModel: WeatherViewModel
 ) {
-/*   val homeViewModel = viewModel<WeatherViewModel>(
-        factory = viewModelFactory {
-            WeatherViewModel(MyApplication.networkModule.repo)
-        }
-    )*/
+
     val deviceWeatherData by homeViewModel.weatherDeviceData.collectAsStateWithLifecycle()
     val currentLocation = homeViewModel.currentLocation
     homeViewModel.GetLocation()
